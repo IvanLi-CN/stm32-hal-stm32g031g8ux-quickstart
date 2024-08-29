@@ -1,6 +1,6 @@
 [package]
-authors = ["Your name <your@em.ail>"]
-name = "project_name"
+authors = ["Ivan Li<ivanli2048@gmail.com>"]
+name = "pd-sink-stm32-rs"
 edition = "2021"
 version = "0.1.0"
 
@@ -16,7 +16,7 @@ critical-section = "^1.1.2"
 #rtic = { version = "^2.0.1", features = ["thumbv7-backend"] }
 
 # Change this import as required for your MCU.
-hal = { package = "stm32-hal2", version = "^1.6.4", features = ["l4x3", "l4rt"]}
+hal = { package = "stm32-hal2", version = "1.8.3", features = ["g031", "embedded_hal"]}
 
 # cargo build/run
 [profile.dev]

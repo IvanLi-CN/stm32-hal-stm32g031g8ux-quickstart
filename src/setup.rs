@@ -11,6 +11,9 @@ pub fn setup_pins() {
     //
     // can_tx.output_speed(OutputSpeed::VeryHigh);
     // can_rx.output_speed(OutputSpeed::VeryHigh);
+
+    let mut led = Pin::new(Port::B, 8, PinMode::Output);
+    led.output_speed(OutputSpeed::Low);
 }
 
 pub fn setup_dma() {

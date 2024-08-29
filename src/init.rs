@@ -23,7 +23,7 @@ pub fn run() {
 
     clock_cfg.setup().unwrap();
 
-    let _dma = Dma::new(dp.DMA1);
+    let _dma = Dma::new(dp.DMA);
 
     setup::setup_pins();
     setup::setup_dma();

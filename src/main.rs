@@ -8,7 +8,7 @@
 #![no_main]
 #![no_std]
 
-use cortex_m::{self};
+use cortex_m::{self, asm::delay};
 use cortex_m_rt::entry;
 use defmt::println;
 // These lines are part of our setup for debug printing.
@@ -16,7 +16,7 @@ use defmt_rtt as _;
 use panic_probe as _;
 // Import parts of this library we use. You could use this style, or perhaps import
 // less here.
-use hal::{self, low_power, pac};
+use hal::{self, gpio::{Pin, PinMode, Port}, low_power, pac};
 
 mod init;
 mod setup;
@@ -60,8 +60,12 @@ fn main() -> ! {
 
     init::run();
 
+    let mut led = Pin::new(Port::B, 8, PinMode::Output);
+
     loop {
         // low_power::sleep_now();
+        led.toggle();
+        delay(1_000_000);
         cortex_m::asm::nop();
     }
 }
